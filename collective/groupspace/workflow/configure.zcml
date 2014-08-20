@@ -6,23 +6,7 @@
     i18n_domain="collective.groupspace.workflow">
 
     <!-- Event handlers -->
-
-    <!-- Plone < 4.1 -->
-    <subscriber
-        for=".interfaces.ILocalGroupSpaceWorkflow
-             zope.app.container.interfaces.IObjectAddedEvent"
-        handler=".handlers.add_local_groupspace_workflow"
-        zcml:condition="installed zope.app.container.interfaces.IObjectAddedEvent"
-        />
-
-    <!-- Plone >= 4.1 -->
-    <subscriber
-        for=".interfaces.ILocalGroupSpaceWorkflow
-             zope.lifecycleevent.interfaces"
-        handler=".handlers.add_local_groupspace_workflow"
-        zcml:condition="installed zope.lifecycleevent.interfaces.IObjectAddedEvent"
-        />
-
+    <subscriber handler=".handlers.add_local_groupspace_workflow" />
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
